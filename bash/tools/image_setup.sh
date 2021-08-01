@@ -155,22 +155,13 @@ case ${DUMP1090OPTION} in
         echo -e ""
         echo -e "\e[95m  Installing dump1090-fa...\e[97m"
         echo -e ""
-        mkdir -vp ${RECEIVER_BUILD_DIRECTORY}/dump1090-fa
-        cd ${RECEIVER_BUILD_DIRECTORY}/dump1090-fa 2>&1
-        git clone https://github.com/flightaware/dump1090.git
-        cd ${RECEIVER_BUILD_DIRECTORY}/dump1090-fa/dump1090 2>&1
-        dpkg-buildpackage -b
-        cd ${RECEIVER_BUILD_DIRECTORY}/dump1090-fa 2>&1
-        sudo dpkg -i dump1090-fa_*.deb
-
-        # PiAware
-        cd ${RECEIVER_BUILD_DIRECTORY} 2>&1
-        git clone https://github.com/flightaware/piaware_builder.git
-        cd ${RECEIVER_BUILD_DIRECTORY}/piaware_builder 2>&1
-        ./sensible-build.sh jessie
-        cd ${RECEIVER_BUILD_DIRECTORY}/piaware_builder/package-jessie 2>&1
-        dpkg-buildpackage -b
-        sudo dpkg -i ${RECEIVER_BUILD_DIRECTORY}/piaware_builder/piaware_*.deb
+        wget https://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_5.0_all.deb
+        sudo dpkg -i piaware-repository_5.0_all.deb
+        sudo apt-get update -y
+        sudo apt-get install piaware -y
+        sudo piaware-config allow-auto-updates yes
+        sudo piaware-config allow-manual-updates yes
+        sudo apt-get install dump1090-fa
         ;;
     *)
         # Nothing selected.
