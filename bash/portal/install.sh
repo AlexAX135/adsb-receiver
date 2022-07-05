@@ -246,6 +246,7 @@ case $RECEIVER_OS_DISTRIBUTION in
     debian|raspbian)
         if [[ $RECEIVER_OS_RELEASE -ge "9" ]]; then DISTRO_PHP_VERSION="7.0"; fi
         if [[ $RECEIVER_OS_RELEASE -ge "10" ]]; then DISTRO_PHP_VERSION="7.3"; fi
+        if [[ $RECEIVER_OS_RELEASE -ge "11" ]]; then DISTRO_PHP_VERSION="8.1"; fi
         ;;
     ubuntu)
         if [ `bc -l <<< "$RECEIVER_OS_RELEASE >= 16.04"` -eq 1 ]; then DISTRO_PHP_VERSION="7.0"; fi
