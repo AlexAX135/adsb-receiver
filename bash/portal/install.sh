@@ -257,7 +257,7 @@ esac
 
 # Install PHP.
 CheckPackage php${DISTRO_PHP_VERSION}-cgi
-CheckPackage php${DISTRO_PHP_VERSION}-json
+#CheckPackage php${DISTRO_PHP_VERSION}-json
 
 # Performance graph dependencies.
 CheckPackage collectd-core
