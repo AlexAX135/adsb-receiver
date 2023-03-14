@@ -118,7 +118,7 @@ case ${DUMP1090OPTION} in
         # Install prerequisite packages.
         echo -e "\e[95m  Installing additional dump1090-fa and PiAware prerequisite packages...\e[97m"
         echo -e ""
-        CheckPackage dh-systemd
+        CheckPackage debhelper
         CheckPackage libncurses5-dev
         CheckPackage cmake
         CheckPackage doxygen
