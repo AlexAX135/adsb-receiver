@@ -64,6 +64,7 @@ function AptUpdate() {
     echo -e "\e[92m  Downloading the latest package lists for all enabled repositories and PPAs..."
     echo -e "\e[93m  ------------------------------------------------------------------------------\e[97m"
     echo -e ""
+    wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add -
     sudo apt-get update
     echo -e ""
     echo -e "\e[93m  ------------------------------------------------------------------------------"
