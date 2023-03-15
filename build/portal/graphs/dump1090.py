@@ -185,7 +185,7 @@ def read_aircraft(instance_name, host, url):
         with closing(urlopen(url + '/data/receiver.json', None, 5.0)) as receiver_file:
             receiver = json.load(receiver_file)
 
-        if lat in receiver:
+        if 'lat' in receiver:
             rlat = float(receiver['lat'])
             rlon = float(receiver['lon'])
         else:
