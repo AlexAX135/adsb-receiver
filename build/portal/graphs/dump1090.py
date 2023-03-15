@@ -55,7 +55,7 @@ def read_stats_1min(instance_name, host, url):
 
     # Signal measurements - from the 1 min bucket
     if 'local' in stats['last1min']:
-        if signal in stats['last1min']['local']:
+        if 'signal' in stats['last1min']['local']:
           V.dispatch(plugin_instance = instance_name,
                    host=host,
                    type='dump1090_dbfs',
@@ -64,7 +64,7 @@ def read_stats_1min(instance_name, host, url):
                    values = [stats['last1min']['local']['signal']],
                    interval = 60)
 
-        if peak_signal in stats['last1min']['local']:
+        if 'peak_signal' in stats['last1min']['local']:
           V.dispatch(plugin_instance = instance_name,
                    host=host,
                    type='dump1090_dbfs',
@@ -73,7 +73,7 @@ def read_stats_1min(instance_name, host, url):
                    values = [stats['last1min']['local']['peak_signal']],
                    interval = 60)
 
-        if min_signal in stats['last1min']['local']:
+        if 'min_signal' in stats['last1min']['local']:
           V.dispatch(plugin_instance = instance_name,
                    host=host,
                    type='dump1090_dbfs',
@@ -82,7 +82,7 @@ def read_stats_1min(instance_name, host, url):
                    values = [stats['last1min']['local']['min_signal']],
                    interval = 60)
 
-        if noise in stats['last1min']['local']:
+        if 'noise' in stats['last1min']['local']:
           V.dispatch(plugin_instance = instance_name,
                    host=host,
                    type='dump1090_dbfs',
@@ -100,7 +100,7 @@ def read_stats(instance_name, host, url):
         return
 
     # Local message counts
-    if ['local'] in stats['total']:
+    if 'local' in stats['total']:
         counts = stats['total']['local']['accepted']
         V.dispatch(plugin_instance = instance_name,
                    host=host,
@@ -116,7 +116,7 @@ def read_stats(instance_name, host, url):
                        time=T(stats['total']['end']),
                        values = [counts[i]])
 
-        if strong_signals in stats['total']['local']:
+        if 'strong_signals' in stats['total']['local']:
             V.dispatch(plugin_instance = instance_name,
                        host=host,
                        type='dump1090_messages',
@@ -126,7 +126,7 @@ def read_stats(instance_name, host, url):
                        interval = 60)
 
     # Remote message counts
-    if remote in stats['total']:
+    if 'remote' in stats['total']:
         counts = stats['total']['remote']['accepted']
         V.dispatch(plugin_instance = instance_name,
                    host=host,
