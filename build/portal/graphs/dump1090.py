@@ -54,7 +54,7 @@ def read_stats_1min(instance_name, host, url):
         return
 
     # Signal measurements - from the 1 min bucket
-    if ['local'] in stats['last1min']:
+    if 'local' in stats['last1min']:
         if signal in stats['last1min']['local']:
           V.dispatch(plugin_instance = instance_name,
                    host=host,
