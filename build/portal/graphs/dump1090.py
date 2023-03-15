@@ -1,7 +1,7 @@
 import collectd
 import json, math
 from contextlib import closing
-from urllib2 import urlopen, URLError
+from urllib.request import urlopen, URLError
 import urlparse
 import time
 
