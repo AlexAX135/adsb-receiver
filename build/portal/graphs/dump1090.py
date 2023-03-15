@@ -134,7 +134,7 @@ def read_stats(instance_name, host, url):
                    type_instance='remote_accepted',
                    time=T(stats['total']['end']),
                    values = [sum(counts)])
-        for i in xrange(len(counts)):
+        for i in range(len(counts)):
             V.dispatch(plugin_instance = instance_name,
                        host=host,
                        type='dump1090_messages',
