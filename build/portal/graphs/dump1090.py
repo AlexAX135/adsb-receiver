@@ -2,7 +2,7 @@ import collectd
 import json, math
 from contextlib import closing
 from urllib.request import urlopen, URLError
-import urlparse
+from urllib.parse import urlparse
 import time
 
 def handle_config(root):
