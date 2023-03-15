@@ -19,10 +19,10 @@ def handle_config(root):
                 collectd.warning('No URL found in dump1090 Instance ' + instance_name)
             else:
                 collectd.register_read(callback=handle_read,
-                                       data=(instance_name, urlparse.urlparse(url).hostname, url),
+                                       data=(instance_name, urlparse(url).hostname, url),
                                        name='dump1090.' + instance_name)
                 collectd.register_read(callback=handle_read_1min,
-                                       data=(instance_name, urlparse.urlparse(url).hostname, url),
+                                       data=(instance_name, urlparse(url).hostname, url),
                                        name='dump1090.' + instance_name + '.1min',
                                        interval=60)
 
