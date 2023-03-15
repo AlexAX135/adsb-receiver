@@ -203,7 +203,7 @@ def read_aircraft(instance_name, host, url):
     mlat = 0
     for a in aircraft_data['aircraft']:
         if a['seen'] < 15: total += 1
-        if seen_pos in a and a['seen_pos'] < 15:
+        if 'seen_pos' in a and a['seen_pos'] < 15:
             with_pos += 1
             if rlat is not None:
                 distance = greatcircle(rlat, rlon, a['lat'], a['lon'])
